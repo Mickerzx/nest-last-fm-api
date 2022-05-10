@@ -3,7 +3,7 @@ export class CreateAlbumDto {
 
   readonly artist: string;
 
-  readonly createYear: string;
+  readonly createdYear: string;
 
   readonly cover: string;
 }

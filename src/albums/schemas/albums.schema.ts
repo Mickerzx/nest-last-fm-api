@@ -9,7 +9,7 @@ export class Album {
   title: string;
 
   @Prop({ required: true })
-  artist: string;
+  artist: mongoose.Types.ObjectId;
 
   @Prop({ required: true })
   createdYear: string;

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { AlbumsService } from './albums.service';
 import { Album } from './schemas/albums.schema';
 import { CreateAlbumDto } from './dto/create-album.dto';
@@ -20,5 +20,15 @@ export class AlbumsController {
   @Post()
   createAlbum(@Body() album: CreateAlbumDto): Promise<Album> {
     return this.albumsService.createAlbum(album);
+  }
+
+  @Put(':id')
+  updateAlbum(@Body() album: CreateAlbumDto, @Param('id') id: string): Promise<Album> {
+    return this.albumsService.updateAlbum(album, id);
+  }
+
+  @Get(':id')
+  removeAlbum(@Param('id') id: string): Promise<Album> {
+    return this.albumsService.removeAlbum(id);
   }
 }

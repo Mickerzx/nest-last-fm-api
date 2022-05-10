@@ -16,8 +16,16 @@ export class AlbumsService {
     return this.albumsModel.findById(id);
   }
 
-  async createAlbum(album: CreateAlbumDto) {
+  async createAlbum(album: CreateAlbumDto): Promise<Album> {
     const newAlbum = new this.albumsModel(album);
     return newAlbum.save();
+  }
+
+  async updateAlbum(album: CreateAlbumDto, id: string): Promise<Album> {
+    return this.albumsModel.findByIdAndUpdate(id, album);
+  }
+
+  async removeAlbum(id: string): Promise<Album> {
+    return this.albumsModel.findByIdAndDelete(id);
   }
 }

@@ -3,7 +3,7 @@ import { ArtistService } from './artist.service';
 import { Artist } from './schemas/artist.schema';
 import { CreateArtistDto } from './dto/create-artist.dto';
 
-@Controller('artists')
+@Controller('artist')
 export class ArtistController {
   constructor(private readonly artistService: ArtistService) {}
 
